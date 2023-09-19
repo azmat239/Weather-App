@@ -12,7 +12,7 @@ header{
 
 }
 .main{
-    height: 130vh;
+    margin-top: 5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,6 @@ header{
 }
 .main_input{
     width: 50vw;
-
 }
 .Input1{
     display: grid;
@@ -133,3 +132,16 @@ svg{
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
 }
+
+@media only screen and (max-width: 800px) {
+    .Input1{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .main_input{
+        width: fit-content;
+    }
+    img{
+        width: 150px;
+    }
+  }
