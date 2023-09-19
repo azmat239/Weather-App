@@ -14,7 +14,7 @@ WIicon.style.display='none';
 hidden.style.display='none';
 hidden1.style.display='none';
 searchbutton.addEventListener('click',e=>{
-    if(inputValue != ''){
+    if(inputValue.value != ''){
         requestapi(inputValue.value);
     }
     else{
@@ -54,7 +54,7 @@ function fetchData(){
     .then(result => WeatherResult(result))
     .catch((e)=>{
         console.log(e);
-        info_text.innerText='Something Wrong here fetch';
+        info_text.innerText='Something Wrong here';
         info_text.classList.replace('pending','error');
 });
 }
@@ -78,37 +78,41 @@ function WeatherResult(info){
             WIicon.src='./icons/clear.svg';
         }
         else if(id == 200 && id==232){
-            WIicon.src='icons/clear.svg';
+            WIicon.src='icons/storm.svg';
         }
         else if(id == 600 && id==622){
-            WIicon.src='icons/clear.svg';
+            WIicon.src='icons/snow.svg';
         }
         else if(id >= 801 && id<=804){
-            WIicon.src='icons/clear.svg';
+            WIicon.src='icons/cloud.svg';
         }
         else if(id == 700 && id==781){
-            WIicon.src='icons/clear.svg';
+            WIicon.src='icons/haze.svg';
         }
         else if((id == 500 && id==531) || (id == 300 && id==321)){
-            WIicon.src='icons/clear.svg';
+            WIicon.src='icons/rain.svg';
         }
+        
+        
         WIicon.style.display='block';
         hidden.style.display='block';
         hidden1.style.display='block';
 
-        wrapper.querySelector('#cityoutput').innerText='City is :' +city+' Country : '+country;
+
+
+        wrapper.querySelector('#cityoutput').innerText=city+','+country;
         wrapper.querySelector('#description').innerText = description;
-        wrapper.querySelector('#temp').innerText = `Temperatur = ${Math.floor(temp>70?temp-273.15:temp)} `;
-        wrapper.querySelector('#humidity').innerText =' Humidity = ' + humidity + '%';
-        wrapper.querySelector('#feelsLike').innerText = 'Feels Like = '+Math.floor(temp>70?temp-273.15:temp);
-        wrapper.querySelector('#wind').innerText = 'wind Speed = '+ windspd + '%';
+        wrapper.querySelector('#temp').innerText = ` ${Math.floor(temp>70?temp-273.15:temp)} `;
+        wrapper.querySelector('#humidity').innerText = humidity + '%';
+        wrapper.querySelector('#feelsLike').innerText = Math.floor(temp>70?temp-273.15:temp);
+        wrapper.querySelector('#wind').innerText = windspd + '%';
 
-        info_text.classList.remove('pending','error');
+
         info_text.innerText='';
-        Input.value=''
+        info_text.classList.remove('pending','error');
+        inputValue.value=''
         wrapper.classList.add('active');
-
-
+        
 
     }
 

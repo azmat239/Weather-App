@@ -12,12 +12,13 @@ header{
 
 }
 .main{
-    height: 100vh;
+    height: 130vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .info-text{
     text-align: center;
@@ -27,7 +28,7 @@ header{
     font-size: small;
 }
 .pending{
-    color: yellow;
+    color: rgb(199, 199, 38);
     font-size: small;
 
 }
@@ -76,5 +77,59 @@ button:hover{
 
 }
 
+.wraper{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
+    font-size: larger;
+}
 
+.fl{
+    display: flex;
+    gap: 0.2rem;
+}
 
+.active{
+    border:1px solid aqua;
+    padding: 1.2rem;
+    width: 95vw;
+    border-radius: 2rem;
+    transition: all 1s ease-in;
+    cursor: pointer;
+}
+
+.active:hover{
+    background-color: aqua;
+}
+
+.tempera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    gap: -1rem;
+}
+
+.fl1{
+    display: flex;
+}
+
+#temp{
+    font-weight: 700;
+    font-size:2rem;
+}
+#hide{
+    font-weight: 700;
+    font-size:2rem;
+}
+
+svg{
+    font-size: 2rem;
+    margin-left: 10px;
+}
+.sidebr{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+}
