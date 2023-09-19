@@ -7,7 +7,7 @@ var Getlocationbutton = document.querySelector('#add1');
 var WIicon = document.querySelector('img');
 var hidden = document.querySelector('#hide');
 var hidden1 = document.querySelector('#hide2');
-let apiK = '27fb63cd07bcb6265afffb91ca6c9938';
+let apiK = 'your api key';
 var api
 
 WIicon.style.display='none';
