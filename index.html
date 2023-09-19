@@ -9,13 +9,15 @@
 </head>
 <body>
 
-    <header><i class='bx bx-left-arrow-alt'></i>Weather App</header>
+    <header>Weather App</header>
     <div class="main">
         <section class="main_input">
             <div id="info-text"></div>
-            <div id="Input1">
+            <div class="Input1">
                 <input type="text" id="cityinput" placeholder="Enter The City">
                 <button type="button" id="add">Search</button>
+            </div>
+            <div class="get">
                 <p id="or">Or</p>
                 <button type="button" id="add1">Get Location</button>
             </div>
@@ -32,15 +34,20 @@
                 <div id="description"></div>
                 
                 <div id="main1">
-                    <p id="temp">
+                    <div>
+                        <p id="temp"></p>
+                        <p id="hide"><sup>o</sup>C</p>
 
-                    </p>
+                    </div>
                     <p id="humidity">
 
                     </p>
-                    <p id="feelsLike">
+                    <div >
+                        <p id="feelsLike"></p>
+                        
+                        <p id="hide2"><sup>o</sup>C</p>
                           
-                    </p>
+                    </div>
                 </div>
                 
                 <div id="wind">

@@ -5,12 +5,14 @@ var inputValue = document.querySelector('#cityinput');
 var searchbutton = document.querySelector('#add');
 var Getlocationbutton = document.querySelector('#add1');
 var WIicon = document.querySelector('img');
-arrowBack = wrapper.querySelector("header i");
+var hidden = document.querySelector('#hide');
+var hidden1 = document.querySelector('#hide2');
 let apiK = '27fb63cd07bcb6265afffb91ca6c9938';
 var api
 
-
 WIicon.style.display='none';
+hidden.style.display='none';
+hidden1.style.display='none';
 searchbutton.addEventListener('click',e=>{
     if(inputValue != ''){
         requestapi(inputValue.value);
@@ -29,6 +31,7 @@ Getlocationbutton.addEventListener('click', () =>{
 });
 function requestapi(city){
     api = 'https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid='+apiK;
+    console.log(inputValue.value)
     fetchData();
 }
 function onSuccess(position){
@@ -57,7 +60,6 @@ function fetchData(){
 }
 
 function WeatherResult(info){
-    console.log(info);
         
     if(info.cod=='404'){
         info_text.innerText = `${Input.value} isn't a valid city name`;
@@ -70,9 +72,6 @@ function WeatherResult(info){
         const {description,id} = info.weather[0];
         const {temp,feels_like,humidity} = info.main;
         const windspd = info.wind.speed;
-        WIicon.style.display='block'
-
-
 
 
         if(id==800){
@@ -93,18 +92,20 @@ function WeatherResult(info){
         else if((id == 500 && id==531) || (id == 300 && id==321)){
             WIicon.src='icons/clear.svg';
         }
+        WIicon.style.display='block';
+        hidden.style.display='block';
+        hidden1.style.display='block';
 
-        wrapper.querySelector('#cityoutput').innerText='City is :' +city+' country : '+country;
+        wrapper.querySelector('#cityoutput').innerText='City is :' +city+' Country : '+country;
         wrapper.querySelector('#description').innerText = description;
-        wrapper.querySelector('#temp').innerText = Math.floor(temp);
-        wrapper.querySelector('#humidity').innerText = humidity;
-        wrapper.querySelector('#feelsLike').innerText = Math.floor(feels_like);
-        wrapper.querySelector('#wind').innerText = windspd;
+        wrapper.querySelector('#temp').innerText = `Temperatur = ${Math.floor(temp>70?temp-273.15:temp)} `;
+        wrapper.querySelector('#humidity').innerText =' Humidity = ' + humidity + '%';
+        wrapper.querySelector('#feelsLike').innerText = 'Feels Like = '+Math.floor(temp>70?temp-273.15:temp);
+        wrapper.querySelector('#wind').innerText = 'wind Speed = '+ windspd + '%';
 
         info_text.classList.remove('pending','error');
         info_text.innerText='';
         Input.value=''
-
         wrapper.classList.add('active');
 
 
@@ -112,7 +113,4 @@ function WeatherResult(info){
     }
 
 }
-arrowBack.addEventListener("click", ()=>{
-    wrapper.classList.remove("active");
-});
 

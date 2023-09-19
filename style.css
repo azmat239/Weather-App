@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500&family=Poppins:ital,wght@1,200&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+header{
+    text-align: center;
+    font-size: 2rem;
+    color: rgba(81, 0, 255, 0.897);
+
+}
+.main{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info-text{
+    text-align: center;
+}
+.error{
+    color: red;
+    font-size: small;
+}
+.pending{
+    color: yellow;
+    font-size: small;
+
+}
+.main_input{
+    width: 50vw;
+
+}
+.Input1{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+}
+
+input{
+    font-size: 1.5rem;
+    padding: 0.4rem 0.3rem;
+    border-radius: 1rem;
+    transition: all 1s ease-in-out;
+    border: 1px solid aqua;
+}
+input:focus{
+    background-color: black;
+    color: white;
+}
+
+.get{
+    text-align: center;
+    margin: 1.2rem 0;
+}
+button{
+    font-size: 1.2rem;
+    border: 1px solid aqua;
+    background-color: transparent;
+    border-radius: 1rem;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: aqua;
+
+}
+#add1{
+    margin: 1rem;
+    padding: 0.6rem 1.7rem;
+
+}
+
+
+
